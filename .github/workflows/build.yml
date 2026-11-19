@@ -6,6 +6,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: unzip -o "$(ls *.zip | head -n 1)" -d proj
+      - run: sed -i 's/onStart()/startHelper()/g' proj/app/src/main/java/com/example/saper/MainActivity.kt
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
